@@ -1,4 +1,6 @@
-var express = require('express');
+var express = require('express'),
+    fs = require('fs'),
+    https = require("https");
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -49,7 +51,15 @@ app.use(function (err, req, res, next) {
     return;
 });
 
-app.listen(config.get('port'), function () {
+
+var privateKey = fs.readFileSync('ssl/96189580-localhost.key');
+var certificate = fs.readFileSync('ssl/96189580-localhost.cert');
+
+var credentials = {key: privateKey, cert: certificate};
+
+var httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(config.get('port'), function () {
     log.info('Express server listening on port ' + config.get('port'));
 });
 
