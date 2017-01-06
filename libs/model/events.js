@@ -27,6 +27,5 @@ Event.path('title').validate(function (v) {
     return v.length > 5 && v.length < 70;
 });
 
-var EventModel = mongoose.model('Event', Event);
 
-module.exports.EventModel = EventModel;
+module.exports.EventModel = mongoose.model('Event', Event);;
