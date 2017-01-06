@@ -28,4 +28,4 @@ Event.path('title').validate(function (v) {
 });
 
 
-module.exports.EventModel = mongoose.model('Event', Event);;
+module.exports = mongoose.model('Event', Event);

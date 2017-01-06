@@ -1,11 +1,13 @@
 var express = require('express'),
     fs = require('fs'),
-    https = require("https");
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var passport = require('passport');
-var methodOverride = require('method-override');
+    https = require("https"),
+    path = require('path'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    passport = require('passport'),
+    methodOverride = require('method-override');
+
+
 var libs = process.cwd() + '/libs/';
 require(libs + 'auth/auth');
 var config = require('./libs/config');
